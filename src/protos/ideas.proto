@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+service IdeaService {
+  rpc List (Empty) returns (IdeaList) {}
+  rpc Get (IdeaId) returns (Idea) {}
+  rpc Insert (Idea) returns (Idea) {}
+  rpc Update (Idea) returns (Idea) {}
+  rpc Remove (IdeaId) returns (Empty) {}
+}
+
+message Empty {}
+message Idea {
+  string id = 1;
+  string body = 2;
+}
+message IdeaList {
+  repeated Idea ideas = 1;
+}
+message IdeaId {
+  string id = 1;
+}
